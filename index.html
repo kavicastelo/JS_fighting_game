@@ -1,3 +1,27 @@
-<canvas></canvas>
-
+<hed>
+    <link rel="stylesheet" href="index.css">
+</hed>
+<body>
+<div class="main-outer">
+    <div class="score-wrapper">
+        <!--player health-->
+        <div class="score-outer" style="display: flex; justify-content: flex-end">
+            <div  class="score"></div>
+            <div id="player_health" style="position: absolute; background-color: blue; top: 0;  right: 0; bottom: 0; width: 100%"></div>
+        </div>
+        <!--time-->
+        <div class="timer"></div>
+        <!--enemy health-->
+        <div class="score-outer">
+            <div  class="score"></div>
+            <div id="enemy_health" style="position: absolute; background-color: blue; top: 0;  right: 0; bottom: 0; left: 0"></div>
+        </div>
+    </div>
+    <canvas></canvas>
+</div>
 <script src="index.js"></script>
+</body>
+
+
+
+

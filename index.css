@@ -24,4 +24,18 @@
     height: 100px;
     background-color: red;
     margin: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.starter_text{
+    position: absolute;
+    color: white;
+    display: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
 }

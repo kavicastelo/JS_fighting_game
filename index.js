@@ -35,8 +35,41 @@ const player = new Fighter({
         y: 0
     },
     offset:{
-        x: 0,
-        y: 0
+        x: 215,
+        y: 155
+    },
+    imgSrc: './img/Martial Hero/Sprites/Idle.png',
+    scale: 2.5,
+    framesMax: 8,
+    sprites: {
+        idle: {
+            imgSrc: './img/Martial Hero/Sprites/Idle.png',
+            framesMax: 8
+        },
+        run: {
+            imgSrc: './img/Martial Hero/Sprites/Run.png',
+            framesMax: 8
+        },
+        jump: {
+            imgSrc: './img/Martial Hero/Sprites/Jump.png',
+            framesMax: 2
+        },
+        fall: {
+            imgSrc: './img/Martial Hero/Sprites/Fall.png',
+            framesMax: 2
+        },
+        attack1: {
+            imgSrc: './img/Martial Hero/Sprites/Attack1.png',
+            framesMax: 6
+        }
+    },
+    attackBox: {
+        offset: {
+            x: 100,
+            y: 50
+        },
+        width: 150,
+        height: 50
     }
 })
 
@@ -52,8 +85,41 @@ const enemy = new Fighter({
     },
     color: 'blue',
     offset:{
-        x: -50,
-        y: 0
+        x: 215,
+        y: 170
+    },
+    imgSrc: './img/Martial Hero 2/Sprites/Idle.png',
+    scale: 2.5,
+    framesMax: 4,
+    sprites: {
+        idle: {
+            imgSrc: './img/Martial Hero 2/Sprites/Idle.png',
+            framesMax: 4
+        },
+        run: {
+            imgSrc: './img/Martial Hero 2/Sprites/Run.png',
+            framesMax: 8
+        },
+        jump: {
+            imgSrc: './img/Martial Hero 2/Sprites/Jump.png',
+            framesMax: 2
+        },
+        fall: {
+            imgSrc: './img/Martial Hero 2/Sprites/Fall.png',
+            framesMax: 2
+        },
+        attack1: {
+            imgSrc: './img/Martial Hero 2/Sprites/Attack1.png',
+            framesMax: 4
+        }
+    },
+    attackBox: {
+        offset: {
+            x: -160,
+            y: 50
+        },
+        width: 150,
+        height: 50
     }
 })
 
@@ -93,16 +159,38 @@ function animate() {
     player.velocity.x = 0;
     if (keys.a.pressed && player.last_key === 'a') {
         player.velocity.x = -5;
+        player.switchSprites('run')
     } else if (keys.d.pressed && player.last_key === 'd') {
         player.velocity.x = 5;
+        player.switchSprites('run')
+    } else {
+        player.switchSprites('idle')
+    }
+
+    // player jumping
+    if (player.velocity.y < 0){
+        player.switchSprites('jump')
+    } else if (player.velocity.y > 0){
+        player.switchSprites('fall')
     }
 
     //enemy move
     enemy.velocity.x = 0;
     if (keys.ArrowLeft.pressed && enemy.last_key === 'ArrowLeft') {
         enemy.velocity.x = -5;
+        enemy.switchSprites('run')
     } else if (keys.ArrowRight.pressed && enemy.last_key === 'ArrowRight') {
         enemy.velocity.x = 5;
+        enemy.switchSprites('run')
+    } else {
+        enemy.switchSprites('idle')
+    }
+
+    // enemy jumping
+    if (enemy.velocity.y < 0){
+        enemy.switchSprites('jump')
+    } else if (enemy.velocity.y > 0){
+        enemy.switchSprites('fall')
     }
 
     // detect for collision

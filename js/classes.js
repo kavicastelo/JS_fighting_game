@@ -81,6 +81,7 @@ class Fighter extends Sprite {
         this.frameHold = 5
         this.sprites = sprites
         this.dead = false
+        this.timeOver = false
 
         for (const sprite in this.sprites) {
             sprites[sprite].image = new Image();

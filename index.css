@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*background-color: black;*/
+    background-image: url("./img/background.png");
+}
 .main-outer{
     position: relative;
     display: inline-block;
@@ -42,6 +53,7 @@
     position: absolute;
     color: white;
     display: none;
+    font-size: 30px;
     top: 0;
     right: 0;
     bottom: 0;
